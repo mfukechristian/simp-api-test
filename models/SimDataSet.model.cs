@@ -1,8 +1,16 @@
-namespace Sims.API.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-public class SimDataSet
+namespace Sims.API.Models
 {
-    public int Id { get; set; }
-    public DateTime UploadedAtUtc { get; set; } = DateTime.UtcNow;
-    public ICollection<Sim> Sims { get; set; } = new List<Sim>();
+    public class SimDataSet
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public DateTime UploadedAtUtc { get; set; } = DateTime.UtcNow;
+
+        public ICollection<Sim> Sims { get; set; } = new List<Sim>();
+    }
 }
